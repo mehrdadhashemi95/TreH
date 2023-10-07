@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location Verification</title>
+</head>
+<body>
+
+<script>
+function checkLocation() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+
+        // Define the coordinates of the Old Zoo in Los Angeles
+        var oldZooLatitude = 34.040773;  // Replace with the actual latitude
+        var oldZooLongitude = -118.264528;  // Replace with the actual longitude
+ 
+        // Calculate the maximum allowable distance in meters (adjust as needed)
+        var maxDistance = 2000;  // For example, 1000 meters (1 kilometer)
+
+        // Calculate the distance between the user's location and the Old Zoo
+        var distance = calculateDistance(latitude, longitude, oldZooLatitude, oldZooLongitude);
+
+        // Check if the user is within the specified distance
+        if (distance <= maxDistance) {
+            // Location is valid, redirect to the note hosted on Google Drive
+            window.location.href = "https://drive.google.com/file/d/1t50LYX7jizB8ENKYfDLdpMcqegyY1VFX/view?usp=sharing";
+        } else {
+            // Location is not valid, display an error message
+            document.getElementById("message").innerHTML = "You are not at the Old Zoo in Los Angeles.";
+        }
+    });
+}
+
+// Function to calculate the distance between two coordinates using Haversine formula
+function calculateDistance(lat1, lon1, lat2, lon2) {
+    var earthRadius = 6371;  // Earth's radius in kilometers
+    var dLat = (lat2 - lat1) * (Math.PI / 180);
+    var dLon = (lon2 - lon1) * (Math.PI / 180);
+    var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    var distance = earthRadius * c * 1000;  // Distance in meters
+    return distance;
+}
+</script>
+
+<p id="message"></p>
+
+<script>
+checkLocation();
+</script>
+
+</body>
+</html>
