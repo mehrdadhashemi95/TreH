@@ -11,22 +11,16 @@ function checkLocation() {
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
 
-        // Define the coordinates of the Old Zoo in Los Angeles
-        var oldZooLatitude = 34.040773;  // Replace with the actual latitude
-        var oldZooLongitude = -118.264528;  // Replace with the actual longitude
+        var oldZooLatitude = 34.040773;  
+        var oldZooLongitude = -118.264528;  
  
-        // Calculate the maximum allowable distance in meters (adjust as needed)
-        var maxDistance = 2000;  // For example, 1000 meters (1 kilometer)
+        var maxDistance = 000;  
 
-        // Calculate the distance between the user's location and the Old Zoo
         var distance = calculateDistance(latitude, longitude, oldZooLatitude, oldZooLongitude);
 
-        // Check if the user is within the specified distance
         if (distance <= maxDistance) {
-            // Location is valid, redirect to the note hosted on Google Drive
             window.location.href = "https://drive.google.com/file/d/1t50LYX7jizB8ENKYfDLdpMcqegyY1VFX/view?usp=sharing";
         } else {
-            // Location is not valid, display an error message
             document.getElementById("message").innerHTML = "You are not at the Old Zoo in Los Angeles.";
         }
     });
