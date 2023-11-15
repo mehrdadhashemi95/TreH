@@ -20,19 +20,21 @@ function checkLocation() {
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
 
-        var oldZooLatitude = 34.040761;  
-        var oldZooLongitude = -118.264764;  
+        var oldZooLatitude = 33.782986;
+        var oldZooLongitude = -118.346443;  
  
-        var maxDistance = 2000;  
+        var maxDistance = 1500;  
 
         var distance = calculateDistance(latitude, longitude, oldZooLatitude, oldZooLongitude);
 
         if (distance <= maxDistance) {
-            document.getElementById("message").innerHTML = "You are not at the right place. Disvocer the invisible Trail!";
+            window.location.href = "https://drive.google.com/file/d/17I2oRW4Fdwz5muCWF2ZlKTIrf72rIAGl/view?usp=sharing";
         } else {
-            document.getElementById("message").innerHTML = "You are close to the island, but not completely there";
+            document.getElementById("message").innerHTML = "You are not at the right place. Discover the hidden location!";
+        }
+    });
+}
 
-          
 // Function to calculate the distance between two coordinates using Haversine formula
 function calculateDistance(lat1, lon1, lat2, lon2) {
     var earthRadius = 6371;  // Earth's radius in kilometers
