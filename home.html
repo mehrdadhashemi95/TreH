@@ -11,17 +11,17 @@ function checkLocation() {
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
 
-        var oldZooLatitude = 34.040773;  
-        var oldZooLongitude = -118.264528;  
+        var oldZooLatitude = 33.782986; 
+        var oldZooLongitude = -118.346443;  
  
-        var maxDistance = 2500;  
+        var maxDistance = 5000;  
 
         var distance = calculateDistance(latitude, longitude, oldZooLatitude, oldZooLongitude);
 
         if (distance <= maxDistance) {
-            window.location.href = "https://drive.google.com/file/d/1t50LYX7jizB8ENKYfDLdpMcqegyY1VFX/view?usp=sharing";
+            window.location.href = "https://drive.google.com/file/d/17I2oRW4Fdwz5muCWF2ZlKTIrf72rIAGl/view?usp=sharing";
         } else {
-            document.getElementById("message").innerHTML = "You are not at home.";
+            document.getElementById("message").innerHTML = "Come Back When You're Closer to the Stars!";
         }
     });
 }
