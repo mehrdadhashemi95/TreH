@@ -20,10 +20,10 @@ function checkLocation() {
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
 
-        var oldZooLatitude = 33.782986;
+        var oldZooLatitude = 38;
         var oldZooLongitude = -118.346443;  
  
-        var maxDistance = 1500;  
+        var maxDistance = 10;  
 
         var distance = calculateDistance(latitude, longitude, oldZooLatitude, oldZooLongitude);
 
